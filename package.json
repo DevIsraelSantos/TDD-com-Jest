@@ -1,0 +1,20 @@
+{
+  "name": "TDD_com_Jest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DevIsraelSantos/TDD-com-Jest.git",
+  "author": "Israel Santos",
+  "license": "MIT",
+  "scripts": {
+    "test" : "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "sequelize": "^6.16.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.4.1"
+  }
+}
