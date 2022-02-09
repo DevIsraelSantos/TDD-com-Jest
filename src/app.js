@@ -1,9 +1,8 @@
 require('dotenv').config({
     path: process.env.NODE_TEST ? '.env.test' : '.env'
 })
-const path = require('path')
+const bodyParser = require('body-parser')
 const express = require("express");
-const data = path.resolve('src', 'database', process.env.DB_FILE + '.sqlite3');
 
 class AppController {
     constructor() {
@@ -14,7 +13,10 @@ class AppController {
     }
 
     middlewares() {
-        this.express.use(express.json());
+        this.express.use(bodyParser.json());
+        this.express.use(bodyParser.urlencoded({
+            extended: true
+        }));
     }
 
     routes() {

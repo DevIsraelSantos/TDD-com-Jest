@@ -24,7 +24,7 @@ module.exports = {
   logging: false,
 
   //Desabilita um warning
-  operatorsAliases:false,
+  operatorsAliases:1,
 
 
 }
