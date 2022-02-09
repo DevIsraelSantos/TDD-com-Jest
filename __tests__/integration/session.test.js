@@ -56,6 +56,34 @@ describe('Integration/Session: Testes de Autenticação', () => {
         expect(response.body).toHaveProperty('token');
     });
 
-   
+    it('Usuario autenticado solicitando conexão', async() => {
+        
+        const user = await factory.create('User');
 
-});
+        const response = await request(app)
+            .get('/dashboard')
+            .set('Autorization', `Bearer ${user.genereteToken()}`);
+
+        expect(response.status).toBe(200);
+    });
+    
+    it('Teste de conexão com usuario não autenticado', async() => {
+        const user = await factory.create('User');
+
+        const response = await request(app)
+            .get('/dashboard')
+
+        expect(response.status).toBe(401);
+    })
+
+    it('Usuario solicita conexão com token invalido', async() => {
+        
+        const user = await factory.create('User');
+
+        const response = await request(app)
+            .get('/dashboard')
+            .set('Autorization', `Bearer #########}`);
+
+       // expect(response.status).toBe(401);
+    });
+})
